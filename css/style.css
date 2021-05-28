@@ -1,61 +1,181 @@
+body{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
 .navbar-brand{
     font-family: 'Ubuntu', sans-serif;
-    font-size: 2em;
+    font-size: 2.5em;
     font-weight: bold;
-    color: white!important;
+    color: #fff;
 }
-.custom-nav .custom-nav-item a{
-    color: #fff!important;
-
-}
-
 .custom-nav-item:hover{
-    background-color:#dc3545;
-    border: solid 1px #dc3545;
-    border-radius: 5px;
-
-
+    background-color: #e00a20;
+border: 1px solid #e00a20;
+border-radius: 10px;
 }
-.remove-vid-parent{
+.custom-nav-item .custom-nav a{
+    color:#fff!important;
+}
+.video-1{
     margin: 0;
     padding: 0;
-    
+
 }
-.vid-parent{
+.video-2{
     position: relative;
-    margin: 0;
-    padding: 0;
+
 }
 video{
+    
     width: 100%;
     height: 100%;
 }
 .vid-overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #225470;
-    z-index: 1;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color: #1a7cb4;
+    z-index:1;
     opacity: 0.7;
-    
 }
 .vid-content{
-    position:fixed;
+    position:absolute;
     z-index: 2;
-    top: 30%;
+    top: 35%;
     left: 35%;
-justify-content:center;
-text-align: center;
-    
+    text-align: center;
     color: #fff;
-    
 }
-.btn {
-    
+.btn{
     border-radius: 10px;
-    border: none;
+}
+.go{
+    font-size: 20px;
+}
+.bottom-banner{
+    color: #fff;
+    padding: 10px;
+}
+.stripe{
+    background-image: linear-gradient(240deg,#ed213a,#93291e);
+    padding: 3rem;
+    height: 13rem;
+    margin-top: 4rem;
+    transform: rotate(10deg);
+    z-index:-5;
+}
+.con{
     
+    color: #000;
+    overflow-x: hidden;
+    
+    background-image: linear-gradient(180deg, #1E88E5, #fff);
+    background-repeat: no-repeat
+}
+
+.card {
+    box-shadow: 0px 4px 8px 0px #BDBDBD
+}
+
+.profile-pic {
+    width: 100px !important;
+    height: 100px;
+    box-shadow: 0px 4px 8px 0px #BDBDBD
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+    background: 0 0;
+    color: #1E88E5 !important;
+    border: none;
+    padding: 5px 20px !important;
+    font: inherit;
+    font-size: 50px !important
+}
+
+.owl-carousel .owl-nav button.owl-next:hover,
+.owl-carousel .owl-nav button.owl-prev:hover {
+    color: #0D47A1 !important;
+    background-color: transparent !important
+}
+
+.owl-dots {
+    display: none
+}
+
+button:focus {
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    outline-width: 0
+}
+
+.item {
+    display: none
+}
+
+.next {
+    display: block !important;
+    position: relative;
+    transform: scale(0.8);
+    transition-duration: 0.3s;
+    opacity: 0.6
+}
+
+.prev {
+    display: block !important;
+    position: relative;
+    transform: scale(0.8);
+    transition-duration: 0.3s;
+    opacity: 0.6
+}
+
+.item.show {
+    display: block;
+    transition-duration: 0.4s
+}
+.social-hover:hover{
+    padding: 5px 100px;
+    text-decoration: none;
+    background-color: rgb(95, 93,93);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 999px) {
+
+    .next,
+    .prev {
+        transform: scale(1);
+        opacity: 1
+    }
+
+    .item {
+        display: block !important
+    }
+}
+@media screen and (min-width:0px) and (max-width:700px) {
+    .my-content,
+    .stripe{display: none;}
+    .txt-banner{
+        display:none;
+    }
+    .vid-content{
+        top: 10%;
+        left:30%;
+    }
+
+    .custom-nav .custom-nav-item a{
+        padding: 10px 20px;
+        background-color: #225470;
+    }
+    .custom-nav-item:hover{
+        background-color:none;
+        border: none;
+        border-radius: none;
+    }
     
 }
