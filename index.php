@@ -12,38 +12,49 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital@1&display=swap" rel="stylesheet">
 </head>
 <body>
-<nav class="navbar navbar-expand-sm navbar-dark  pl-5 fixed-top">
+<nav class="navbar navbar-expand-sm navbar-dark  pl-5 bg-dark">
   <a class="navbar-brand" href="index.php">Alphabet.io</a>
   
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto pr-10 custom-nav  ">
+    <ul class="navbar-nav  ml-auto custom-nav  ">
       <li class="nav-item   custom-nav-item ">
         <a class="nav-link text-light" href="index.php">Home</a>
       </li>
       <li class="nav-item  custom-nav-item">
-        <a class="nav-link text-light" href="#">Courses</a>
+        <a class="nav-link text-light" href="card.php">Courses</a>
       </li>
       <li class="nav-item  custom-nav-item">
-        <a class="nav-link text-light" href="#">Payment</a>
+        <a class="nav-link text-light" href="payment.php">Payment</a>
       </li>
-      <li class="nav-item  custom-nav-item">
+      <?php
+      session_start();
+      if(isset($_SESSION['is_login'])){
+        echo '<li class="nav-item  custom-nav-item">
         <a class="nav-link text-light " href="#">My Profile</a>
       </li>
       <li class="nav-item  custom-nav-item">
-        <a class="nav-link text-light" href="#">Log out</a>
-      </li>
-      <li class="nav-item  custom-nav-item">
+        <a class="nav-link text-light" href="logout.php">Log out</a>
+      </li>';
+      
+      }
+      else{
+        echo ' <li class="nav-item  custom-nav-item">
         <a class="nav-link text-light  "data-toggle="modal" data-target="#StuLogModalCenter" href="#">Login</a>
       </li>
       <li class="nav-item  custom-nav-item">
         <a class="nav-link text-light "data-toggle="modal" data-target="#StuRegModalCenter" href="#">Sign up</a>
-      </li>
+      </li>';
+      }
+      ?>
+      
+     
       <li class="nav-item  custom-nav-item">
         <a class="nav-link text-light " href="#">Feedback</a>
       </li>
@@ -65,7 +76,18 @@
   <div class="vid-content">
     <h1 class="my-content">Welcome to Alphabet.io</h1>
     <small class="my-content go ">Learn and Implement</small><br><br>
-    <a  href="#" class="btn btn-danger"data-toggle="modal" data-target="#StuRegModalCenter">Get Started</a>
+    <?php
+    
+    if(!isset($_SESSION['is_login'])){
+      echo '<a  href="#" class="btn btn-danger mt-3"data-toggle="modal" data-target="#StuRegModalCenter">Get Started</a>';
+    }
+    else{
+      echo ' <a class="btn btn-primary mt-3" href="#">My Profile</a>';
+    }
+    
+    
+    ?>
+    
     
   </div>
 
@@ -88,6 +110,7 @@
 </div>
 
 
+<!-- card -->
 
 <div class="container mt-5">
   <h1 class="text-center">Popular Courses</h1>
@@ -99,7 +122,6 @@
     <img src="Images/c++.png" class="card-img-top" alt="Course not found"/>
     <div class="card-body">
       <h5 class="card-title ">Learn C++</h5>
-      <p class="card-text">C++ is a object oriented programing language good </p>
     </div>
     <div class="card-footer">
       <p class="card-text d-inline">Price:<small><del>&#8377 2000</del></small>
@@ -113,7 +135,6 @@
     <img src="Images/c++.png" class="card-img-top" alt="Course not found"/>
     <div class="card-body">
       <h5 class="card-title ">Learn C++</h5>
-      <p class="card-text">C++ is a object oriented programing language good </p>
     </div>
     <div class="card-footer">
       <p class="card-text d-inline">Price:<small><del>&#8377 2000</del></small>
@@ -127,7 +148,6 @@
     <img src="Images/c++.png" class="card-img-top" alt="Course not found"/>
     <div class="card-body">
       <h5 class="card-title ">Learn C++</h5>
-      <p class="card-text">C++ is a object oriented programing language good </p>
     </div>
     <div class="card-footer">
       <p class="card-text d-inline">Price:<small><del>&#8377 2000</del></small>
@@ -144,7 +164,6 @@
     <img src="Images/python.png" class="card-img-top" alt="Course not found"/>
     <div class="card-body">
       <h5 class="card-title">Learn Python</h5>
-      <p class="card-text">C++ is a object oriented programing language</p>
     </div>
     <div class="card-footer">
       <p class="card-text d-inline">Price:<small><del>&#8377 2000</del></small>
@@ -157,7 +176,6 @@
     <img src="Images/python.png" class="card-img-top" alt="Course not found"/>
     <div class="card-body">
       <h5 class="card-title">Learn Python</h5>
-      <p class="card-text">C++ is a object oriented programing language</p>
     </div>
     <div class="card-footer">
       <p class="card-text d-inline">Price:<small><del>&#8377 2000</del></small>
@@ -170,7 +188,6 @@
     <img src="Images/python.png" class="card-img-top" alt="Course not found"/>
     <div class="card-body">
       <h5 class="card-title">Learn Python</h5>
-      <p class="card-text">C++ is a object  oriented programing language</p>
     </div>
     <div class="card-footer">
       <p class="card-text d-inline">Price:<small><del>&#8377 2000</del></small>
@@ -183,65 +200,21 @@
     <a href="#" class="btn btn-danger btn-sm">View All Courses</a>
   </div>
 </div>
+
+<!--  -->
+
 <!-- contact -->
-<div class="container mt-4" id="contact">
-<h2 class="text-center mb-4">Contact Us</h2>
-<div class="row">
-<div class="col-md-8">
-<form action=" "method="post">
-<input type="text" class="form-control"name="name"placeholder="Name"><br>
-<input type="text" class="form-control"name="subject"placeholder="Subject"><br>
-<input type="E-mail" class="form-control"name="email"placeholder="E-mail"><br>
-<textarea name="message" class="form-control" placeholder="How canwe help you"style=" height:150px;"></textarea><br>
-<input type="submit" class="btn btn-primary" value="send" name="submit"><br><br>
-</form>
-</div>
-<div class="col-md-4 stripe text-white text-center">
-<h4>Alphbet.io</h4>
-<p>Alphbet.io,
-Near Police Camp,Nasik,
-Maharashtra-834005,
-Phone:+000000000,
-www.alphbet.io.com</p>
-</div>
-</div>
-</div>
+<?php
+include('./contact.php');
+?>
+<!-- contact-end -->
 
+<!-- Feedback -->
+<?php
+include('./Feedback.php')
+?>
+<!--  -->
 
-
-<div class="container-fluid px-3 px-sm-5 my-5 text-center con">
-    <h4 class="mb-5 font-weight-bold">What Our Student say</h4>
-    <div class="owl-carousel owl-theme">
-        <div class="item first prev">
-            <div class="card border-0 py-3 px-4">
-                <div class="row justify-content-center"> <img src="https://i.imgur.com/gazoShk.jpg" class="img-fluid profile-pic mb-4 mt-3"> </div>
-                <h6 class="mb-3 mt-2">Marielle Haag</h6>
-                <p class="content mb-5 mx-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.</p>
-            </div>
-        </div>
-        <div class="item show">
-            <div class="card border-0 py-3 px-4">
-                <div class="row justify-content-center"> <img src="https://i.imgur.com/oW8Wpwi.jpg" class="img-fluid profile-pic mb-4 mt-3"> </div>
-                <h6 class="mb-3 mt-2">Ximena Vegara</h6>
-                <p class="content mb-5 mx-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.</p>
-            </div>
-        </div>
-        <div class="item next">
-            <div class="card border-0 py-3 px-4">
-                <div class="row justify-content-center"> <img src="https://i.imgur.com/ndQx2Rg.jpg" class="img-fluid profile-pic mb-4 mt-3"> </div>
-                <h6 class="mb-3 mt-2">John Paul</h6>
-                <p class="content mb-5 mx-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.</p>
-            </div>
-        </div>
-        <div class="item last">
-            <div class="card border-0 py-3 px-4">
-                <div class="row justify-content-center"> <img src="https://i.imgur.com/T5aOhwh.jpg" class="img-fluid profile-pic mb-4 mt-3"> </div>
-                <h6 class="mb-3 mt-2">William Doe</h6>
-                <p class="content mb-5 mx-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Ut enim.</p>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="container-fluid bg-danger text-white ">
   <div class="row  text-white text-center p-1" >
     <div class="col-sm">
@@ -258,37 +231,20 @@ www.alphbet.io.com</p>
     </div>
   </div>
 </div>
-<div class="container-fluid p-4"style="background-color:#E9ECEF">
-<div class="container "style="background-color:#E9ECEF"></div>
-<div class="row text-center">
-  <div class="col-sm">
-    <h5>About Us</h5>
-    <p>Alphbet.io Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam non, aperiam dolorem vero nobis iste iure! Ipsam illo praesentium obcaecati a possimus, veniam maxime vero accusamus neque! Sint, quo vitae?</p>
- 
-  </div>
-  <div class="col-sm">
-    <h5>Category</h5>
-    <a href="" class="text-dark">Web Development</a>
-    <a href="" class="text-dark">Web Designing</a>
-    <a href="" class="text-dark">Ios Developer</a>
-    <a href="" class="text-dark">Android Developer</a>
-    <a href="" class="text-dark">Social Media Marketing</a>
-    <a href="" class="text-dark">Data Science</a>
-  </div>
-  <div class="col-sm">
-    <h5>Contact Us</h5>
-    <p>Alphbet.io Pvt Ltd<br>Police Camp<br>Nasik,Maharashtra<br>Ph. 0000000000</p>
-  </div>
-</div>
+<!-- Footer -->
+<?php
+include('./footer.php')
+?>
+<!--  -->
+<?php
 
-</div>
-
-<footer class="container-fluid bg-dark text-center p-2">
-<small class="text-white">@Copyright 2021 || Desgned By E-learning ||<a href="#login"data-toggle="modal" data-target="#adminLogModalCenter">Admin Login</a></small></footer>
+include('./end.php')
+?>
 <!-- Button trigger modal -->
 
 
 <!-- Modal -->
+<!-- sign up -->
 <div class="modal fade" id="StuRegModalCenter" tabindex="-1" role="dialog" aria-labelledby="StuRegModalCenter" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -299,17 +255,17 @@ www.alphbet.io.com</p>
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form id="stuRegForm">
   <div class="form-group">
     <i class="fas fa-users"></i><label for="stuname" class="pl-2 font-weight-bold">Name</label>
-  <input type="text" class="form-control" placeholder="Name" name="stuname" id="stuname">
+  <small id="stumsg1"></small><input type="text" class="form-control" placeholder="Name" name="stuname" id="stuname">
  <i class="fas fa-envelope"></i> <label for="stumail" class="pl-2 font-weight-bold">Email address</label>
-    <input type="email" class="form-control" id="stumail" name="stumail" placeholder=" Email">
+   <small id="stumsg2"></small> <input type="email" class="form-control" id="stuemail" name="stumail" placeholder=" Email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <i class="fas fa-key"></i>
-    <label for="stupass"class="pl-2 font-weight-bold">New Password</label>
+    <small id="stumsg3"></small><label for="stupass"class="pl-2 font-weight-bold">New Password</label>
     <input type="password" class="form-control"name="stupass" id="stupass" placeholder="Password">
   </div>
   
@@ -317,12 +273,15 @@ www.alphbet.io.com</p>
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Sign Up</button>
+        <span id="sucessmsg"></span>
+        <button type="button" class="btn btn-primary" id="signup12" onclick="addstu()">Sign Up</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div> 
+<!--  -->
+<!-- login -->
 <div class="modal fade" id="StuLogModalCenter" tabindex="-1" role="dialog" aria-labelledby="StuLogModalCenter" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -337,7 +296,7 @@ www.alphbet.io.com</p>
   <div class="form-group">
    
  <i class="fas fa-envelope"></i> <label for="logmail" class="pl-2 font-weight-bold">Email address</label>
-    <input type="email" class="form-control" id="logmail" name="logmail" placeholder=" Email">
+    <input type="email" class="form-control" id="logemail" name="logemail" placeholder=" Email">
   </div>
   <div class="form-group">
     <i class="fas fa-key"></i>
@@ -346,15 +305,18 @@ www.alphbet.io.com</p>
   </div>
   
   
-</form>
+</form id="studLoginForm">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"id="stuLogin">Login</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+      <small id="login1"></small>
+        <button type="button" onclick="stuLogin()" class="btn btn-primary"id="stuLogin">Login</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="cancelstu()">Cancel</button>
       </div>
     </div>
   </div>
 </div> 
+<!--  -->
+<!-- admin login -->
 <div class="modal fade" id="adminLogModalCenter" tabindex="-1" role="dialog" aria-labelledby="adminLogModalCenter" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -365,14 +327,15 @@ www.alphbet.io.com</p>
         </button>
       </div>
       <div class="modal-body">
-      <form id="stuLoginForm">
+      <form id="" method="POST">
   <div class="form-group">
    
  <i class="fas fa-envelope"></i> <label for="adminlogmail" class="pl-2 font-weight-bold">Email address</label>
-    <input type="email" class="form-control" id="adminlogmail" name="adminlogmail" placeholder=" Email">
+   <input type="email" class="form-control" id="adminlogemail" name="adminlogmail" placeholder=" Email">
   </div>
   <div class="form-group">
     <i class="fas fa-key"></i>
+
     <label for="logpass"class="pl-2 font-weight-bold">Password</label>
     <input type="password" class="form-control"name="adminlogpass" id="adminlogpass" placeholder="Password">
   </div>
@@ -381,7 +344,8 @@ www.alphbet.io.com</p>
 </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"id="adminLogin">Login</button>
+      <small id="logadmin"></small>
+        <button type="button" class="btn btn-primary"id="adminLogin" onclick="admin()">Login</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
       </div>
     </div>
@@ -389,7 +353,10 @@ www.alphbet.io.com</p>
 </div> 
 
 <!--  -->
+
 <script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/ajaxrequest.js"></script>
+<script type="text/javascript" src="js/adminajax.js"></script>
   <script src="js/proper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/all.min.js"></script>
